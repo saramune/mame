@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<form class="form-signin" method="post" action="/">
+    <div class="text-center mb-4">
+        <p>連投したいハッシュタグを入れて</p>
+        <p>Twitter連携しましょう</p>
+    </div>
+    <label for="inputTags" class="sr-only">ハッシュタグ</label>
+    <input type="text" id="inputTags" name="tags" class="form-control" placeholder="#tag1 #tag2" required autofocus>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Twitter連携</button>
+    <p class="mt-5 mb-3 text-muted"></p>
+</form>
+{% endblock %}

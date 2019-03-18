@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<form class="form-signin pb-0" id="tweet_form" method="post" action="/">
+    <div class="form-group">
+        <label for="msg">つぶやきましょう</label>
+        <div class="input-group">
+            <textarea id="msg" class="form-control" name="msg" required autofocus></textarea>
+            <div class="input-group-append" id="button-addon4">
+                <button id="tweet" class="btn btn-primary">ﾏﾒﾃﾞｯﾎﾟｳ</button>
+            </div>
+        </div>
+        <input type="hidden" id="hidden_tags" name="tags" value="{{ tags }}"/>
+    </div>
+</form>
+<form class="form-signin pt-0" method="post" action="/">
+    <div class="form-group">
+        <label for="msg">タグは勝手につきます</label>
+        <div class="input-group">
+            <input type="text" id="tags" class="form-control" name="tags" placeholder="#tag1 #tag2" value="{{ tags }}">
+            <div class="input-group-append" id="button-addon4">
+                <button type="submit" id="reload" class="btn btn-primary">タグ更新</button>
+            </div>
+        </div>
+        <input type="hidden" name="msg" value=""/>
+    </div>
+</fomr>
+<h5 class="mb-3">{{ tags }}</h5>
+    {% for msg in msgs %}
+    <hr>
+    <p class="js-autolink">{{ msg.text }}</p>
+    {% endfor %}
+{% endblock %}

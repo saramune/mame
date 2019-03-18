@@ -1,0 +1,18 @@
+version: "3"
+services:
+
+  uwsgi:
+    image: saramune/flask-app-uwsgi:0.1
+    ports:
+      - "3031:3031"
+    environment:
+      TZ: "Asia/Tokyo"
+
+  nginx:
+    image: saramune/flask-app-nginx:dev
+    links:
+      - uwsgi
+    ports:
+      - "8080:80"
+    environment:
+      TZ: "Asia/Tokyo"
